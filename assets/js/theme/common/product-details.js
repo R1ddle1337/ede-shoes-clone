@@ -1,0 +1,702 @@
+import utils from '@bigcommerce/stencil-utils';
+import ProductDetailsBase from './product-details-base';
+import 'foundation-sites/js/foundation/foundation';
+import 'foundation-sites/js/foundation/foundation.reveal';
+import ImageGallery from '../product/image-gallery';
+import modalFactory, { alertModal, showAlertModal, ModalEvents } from '../global/modal';
+import { isEmpty, isPlainObject } from 'lodash';
+import nod from './nod';
+import { announceInputErrorMessage } from './utils/form-utils';
+import forms from './models/forms';
+import { normalizeFormData } from './utils/api';
+import { isBrowserIE, convertIntoArray } from './utils/ie-helpers';
+import bannerUtils from './utils/banner-utils';
+import currencySelector from '../global/currency-selector';
+
+export default class ProductDetails extends ProductDetailsBase {
+    constructor($scope, context, productAttributesData = {}) {
+        super($scope, context);
+
+        this.isCartPage = context.template === 'pages/cart';
+        this.$overlay = $('[data-cart-item-add] .loadingOverlay');
+        this.imageGallery = new ImageGallery($('[data-image-gallery]', this.$scope));
+        this.imageGallery.init();
+        this.listenQuantityChange();
+        this.$swatchOptionMessage = $('.swatch-option-message');
+        this.swatchInitMessageStorage = {};
+        this.swatchGroupIdList = $('[id^="swatchGroup"]').map((_, group) => $(group).attr('id'));
+        this.storeInitMessagesForSwatches();
+        this.updateDateSelector();
+
+        const $form = $('form[data-cart-item-add]', $scope);
+
+        if ($form[0].checkValidity()) {
+            this.updateProductDetailsData();
+        } else {
+            this.toggleWalletButtonsVisibility(false);
+        }
+
+        this.addToCartValidator = nod({
+            submit: $form.find('input#form-action-addToCart'),
+            tap: announceInputErrorMessage,
+        });
+
+        const $productOptionsElement = $('[data-product-option-change]', $form);
+        const $productSwatchGroup = $('[id*="attribute_swatch"]', $form);
+        const $productSwatchLabels = $('.form-option-swatch', $form);
+        const placeSwatchLabelImage = (_, label) => {
+            const $optionImage = $('.form-option-expanded', $(label));
+            const optionImageWidth = $optionImage.outerWidth();
+            const extendedOptionImageOffsetLeft = 55;
+            const { right } = label.getBoundingClientRect();
+            const emptySpaceToScreenRightBorder = window.screen.width - right;
+            const shiftValue = optionImageWidth - emptySpaceToScreenRightBorder;
+
+            if (emptySpaceToScreenRightBorder < (optionImageWidth + extendedOptionImageOffsetLeft)) {
+                $optionImage.css('left', `${shiftValue > 0 ? -shiftValue : shiftValue}px`);
+            }
+        };
+
+        $(window).on('load', () => {
+            this.registerAddToCartValidation();
+            $.each($productSwatchLabels, placeSwatchLabelImage);
+        });
+
+        if (context.showSwatchNames) {
+            this.$swatchOptionMessage.removeClass('u-hidden');
+
+            $productSwatchGroup.on('change', ({ target }) => {
+                const swatchGroupElement = target.parentNode.parentNode;
+
+                this.showSwatchNameOnOption($(target), $(swatchGroupElement));
+            });
+
+            $.each($productSwatchGroup, (_, element) => {
+                const swatchGroupElement = element.parentNode.parentNode;
+
+                if ($(element).is(':checked')) this.showSwatchNameOnOption($(element), $(swatchGroupElement));
+            });
+        }
+
+        $productOptionsElement.on('change', event => {
+            this.productOptionsChanged(event);
+            this.setProductVariant();
+        });
+
+        const productId = $('[name="product_id"]', $form).val();
+        const initialSelection = $form.serialize();
+        utils.api.productAttributes.optionChange(productId, initialSelection, (err, response) => {
+            if (err || !response || !response.data) return;
+            // The synchronous init below applies rule hiding from BCData and can fire a corrective
+            // change for a default-into-conflict selection. If that already moved the selection, this
+            // response is for the stale (pre-correction) selection: discard it so it can't re-show
+            // rule-hidden values or show an unavailable message for a no-longer-selected combination.
+            // The corrective change runs its own optionChange for the corrected selection.
+            if ($form.serialize() !== initialSelection) return;
+
+            this.updateBackorderContext(response.data);
+            const vm = this.getViewModel(this.$scope);
+            const qty = parseInt(vm.quantity.$input.val(), 10) || 0;
+            this.updateQtyBackorderedMessage(qty, vm);
+            this.updateBackorderMessage(vm);
+            this.toggleBackorderedContainer(vm);
+            this.picklistBackorder.render(response.data, qty);
+            this.updateDefaultAttributesForOOS(response.data);
+            // Apply out-of-stock hide/show from this same payload before the rule pass, so rule
+            // hiding and reselection in updateDisabledOptionValues agree with in_stock_attributes.
+            this.updateProductAttributes(response.data);
+            // Re-apply rule hiding after the out-of-stock pass above (which re-shows in-stock values
+            // and would otherwise undo it). Safe from the stale-response race thanks to the guard.
+            this.updateDisabledOptionValues(response.data);
+            // Surface the rule's "unavailable" message for the default selection: a disable rule
+            // (not hidden) that the default selection completes sets purchasing_message in this
+            // response, and the initial BCData payload does not carry it.
+            this.showMessageBox(response.data.stock_message || response.data.purchasing_message);
+            this.updateAddToCartForQty(qty, vm);
+        });
+
+        $form.on('submit', event => {
+            this.addToCartValidator.performCheck();
+
+            if (this.addToCartValidator.areAll('valid')) {
+                this.addProductToCart(event, $form[0]);
+            }
+        });
+
+        this.updateProductAttributes(productAttributesData);
+
+        if (productAttributesData
+            && typeof productAttributesData === 'object'
+            && Object.keys(productAttributesData).length > 0) {
+            this.updateView(productAttributesData, null);
+            // Apply "disable and hide" rule hiding from the initial BCData synchronously, so a
+            // forbidden default selection is corrected at load instead of staying visible until
+            // the async optionChange below resolves. No-op until the backend emits
+            // disabled_option_values in the initial payload.
+            this.updateDisabledOptionValues(productAttributesData);
+        } else {
+            // eslint-disable-next-line no-console
+            console.warn('BCData.product_attributes is empty on product initialization');
+        }
+
+        bannerUtils.dispatchProductBannerEvent(productAttributesData);
+
+        $productOptionsElement.show();
+
+        this.previewModal = modalFactory('#previewModal')[0];
+    }
+
+    registerAddToCartValidation() {
+        this.addToCartValidator.add([{
+            selector: '[data-quantity-change] > .form-input--incrementTotal',
+            validate: (cb, val) => {
+                const result = forms.numbersOnly(val);
+                cb(result);
+            },
+            errorMessage: this.context.productQuantityErrorMessage,
+        }]);
+
+        return this.addToCartValidator;
+    }
+
+    storeInitMessagesForSwatches() {
+        if (this.swatchGroupIdList.length && isEmpty(this.swatchInitMessageStorage)) {
+            this.swatchGroupIdList.each((_, swatchGroupId) => {
+                if (!this.swatchInitMessageStorage[swatchGroupId]) {
+                    this.swatchInitMessageStorage[swatchGroupId] = $(`#${swatchGroupId} ~ .swatch-option-message`).text().trim();
+                }
+            });
+        }
+    }
+
+    setProductVariant() {
+        const unsatisfiedRequiredFields = [];
+        const options = [];
+
+        $.each($('[data-product-attribute]'), (index, value) => {
+            const optionLabel = value.children[0].innerText;
+            const optionTitle = optionLabel.split(':')[0].trim();
+            const required = optionLabel.toLowerCase().includes('required');
+            const type = value.getAttribute('data-product-attribute');
+
+            if ((type === 'input-file' || type === 'input-text' || type === 'input-number') && value.querySelector('input').value === '' && required) {
+                unsatisfiedRequiredFields.push(value);
+            }
+
+            if (type === 'textarea' && value.querySelector('textarea').value === '' && required) {
+                unsatisfiedRequiredFields.push(value);
+            }
+
+            if (type === 'date') {
+                const isSatisfied = Array.from(value.querySelectorAll('select')).every((select) => select.selectedIndex !== 0);
+
+                if (isSatisfied) {
+                    const dateString = Array.from(value.querySelectorAll('select')).map((x) => x.value).join('-');
+                    options.push(`${optionTitle}:${dateString}`);
+
+                    return;
+                }
+
+                if (required) {
+                    unsatisfiedRequiredFields.push(value);
+                }
+            }
+
+            if (type === 'set-select') {
+                const select = value.querySelector('select');
+                const selectedIndex = select.selectedIndex;
+
+                if (selectedIndex !== 0) {
+                    options.push(`${optionTitle}:${select.options[selectedIndex].innerText}`);
+
+                    return;
+                }
+
+                if (required) {
+                    unsatisfiedRequiredFields.push(value);
+                }
+            }
+
+            if (type === 'set-rectangle' || type === 'set-radio' || type === 'swatch' || type === 'input-checkbox' || type === 'product-list') {
+                const checked = value.querySelector(':checked');
+                if (checked) {
+                    const getSelectedOptionLabel = () => {
+                        const productVariantslist = convertIntoArray(value.children);
+                        const matchLabelForCheckedInput = inpt => inpt.dataset.productAttributeValue === checked.value;
+                        return productVariantslist.filter(matchLabelForCheckedInput)[0];
+                    };
+                    if (type === 'set-rectangle' || type === 'set-radio' || type === 'product-list') {
+                        const label = isBrowserIE ? getSelectedOptionLabel().innerText.trim() : checked.labels[0].innerText;
+                        if (label) {
+                            options.push(`${optionTitle}:${label}`);
+                        }
+                    }
+
+                    if (type === 'swatch') {
+                        const label = isBrowserIE ? getSelectedOptionLabel().children[0] : checked.labels[0].children[0];
+                        if (label) {
+                            options.push(`${optionTitle}:${label.title}`);
+                        }
+                    }
+
+                    if (type === 'input-checkbox') {
+                        options.push(`${optionTitle}:Yes`);
+                    }
+
+                    return;
+                }
+
+                if (type === 'input-checkbox') {
+                    options.push(`${optionTitle}:No`);
+                }
+
+                if (required) {
+                    unsatisfiedRequiredFields.push(value);
+                }
+            }
+        });
+
+        let productVariant = unsatisfiedRequiredFields.length === 0 ? options.sort().join(', ') : 'unsatisfied';
+        const view = $('.productView');
+
+        if (productVariant) {
+            productVariant = productVariant === 'unsatisfied' ? '' : productVariant;
+            if (view.attr('data-event-type')) {
+                view.attr('data-product-variant', productVariant);
+            } else {
+                const productName = view.find('.productView-title')[0].innerText.replace(/"/g, '\\$&');
+                const card = $(`[data-name="${productName}"]`);
+                card.attr('data-product-variant', productVariant);
+            }
+        }
+    }
+
+    /**
+     * Checks if the current window is being run inside an iframe
+     * @returns {boolean}
+     */
+    isRunningInIframe() {
+        try {
+            return window.self !== window.top;
+        } catch (e) {
+            return true;
+        }
+    }
+
+    /**
+     *
+     * Handle product options changes
+     *
+     */
+    productOptionsChanged(event) {
+        const $changedOption = $(event.target);
+        const $form = $changedOption.parents('form');
+        const productId = $('[name="product_id"]', $form).val();
+
+        // Do not trigger an ajax request if it's a file or if the browser doesn't support FormData
+        if ($changedOption.attr('type') === 'file' || window.FormData === undefined) {
+            return;
+        }
+
+        utils.api.productAttributes.optionChange(productId, $form.serialize(), 'products/bulk-discount-rates', (err, response) => {
+            const productAttributesData = response.data || {};
+            const productAttributesContent = response.content || {};
+            this.updateProductAttributes(productAttributesData);
+            this.updateDisabledOptionValues(productAttributesData);
+            this.updateView(productAttributesData, productAttributesContent);
+            this.updateProductDetailsData();
+            bannerUtils.dispatchProductBannerEvent(productAttributesData);
+
+            if (!this.checkIsQuickViewChild($form)) {
+                const $context = $form.parents('.productView').find('.productView-info');
+                modalFactory('[data-reveal]', { $context });
+            }
+
+            document.dispatchEvent(new CustomEvent('onProductOptionsChanged', {
+                bubbles: true,
+                detail: {
+                    content: productAttributesContent,
+                    data: productAttributesData,
+                },
+            }));
+        }, { baseUrl: this.context.secureBaseUrl });
+    }
+
+    /**
+     * if this setting is enabled in Page Builder
+     * show name for swatch option
+     */
+    showSwatchNameOnOption($swatch, $swatchGroup) {
+        const swatchName = $swatch.attr('aria-label');
+        const activeSwatchGroupId = $swatchGroup.attr('aria-labelledby');
+        const $swatchOptionMessage = $(`#${activeSwatchGroupId} ~ .swatch-option-message`);
+
+        $('[data-option-value]', $swatchGroup).text(swatchName);
+        $swatchOptionMessage.text(`${this.swatchInitMessageStorage[activeSwatchGroupId]} ${swatchName}`);
+        this.setLiveRegionAttributes($swatchOptionMessage, 'status', 'assertive');
+    }
+
+    setLiveRegionAttributes($element, roleType, ariaLiveStatus) {
+        $element.attr({
+            role: roleType,
+            'aria-live': ariaLiveStatus,
+        });
+    }
+
+    checkIsQuickViewChild($element) {
+        return !!$element.parents('.quickView').length;
+    }
+
+    showProductImage(image) {
+        if (isPlainObject(image)) {
+            const zoomImageUrl = utils.tools.imageSrcset.getSrcset(
+                image.data,
+                { '1x': this.context.zoomSize },
+                /*
+                    Should match zoom size used for data-zoom-image in
+                    components/products/product-view.html
+
+                    Note that this will only be used as a fallback image for browsers that do not support srcset
+
+                    Also note that getSrcset returns a simple src string when exactly one size is provided
+                */
+            );
+
+            const mainImageUrl = utils.tools.imageSrcset.getSrcset(
+                image.data,
+                { '1x': this.context.productSize },
+                /*
+                    Should match fallback image size used for the main product image in
+                    components/products/product-view.html
+
+                    Note that this will only be used as a fallback image for browsers that do not support srcset
+
+                    Also note that getSrcset returns a simple src string when exactly one size is provided
+                */
+            );
+
+            const mainImageSrcset = utils.tools.imageSrcset.getSrcset(image.data);
+
+            this.imageGallery.setAlternateImage({
+                mainImageUrl,
+                zoomImageUrl,
+                mainImageSrcset,
+            });
+        } else {
+            this.imageGallery.restoreImage();
+        }
+    }
+
+    /**
+     *
+     * Handle action when the shopper clicks on + / - for quantity
+     *
+     */
+    listenQuantityChange() {
+        this.$scope.on('click', '[data-quantity-change] button', event => {
+            event.preventDefault();
+            const $target = $(event.currentTarget);
+            const viewModel = this.getViewModel(this.$scope);
+            const $input = viewModel.quantity.$input;
+            const quantityMin = parseInt($input.data('quantityMin'), 10);
+            const quantityMax = parseInt($input.data('quantityMax'), 10);
+
+            let qty = forms.numbersOnly($input.val()) ? parseInt($input.val(), 10) : quantityMin;
+            // If action is incrementing
+            if ($target.data('action') === 'inc') {
+                qty = forms.validateIncreaseAgainstMaxBoundary(qty, quantityMax);
+            } else if (qty > 1) {
+                qty = forms.validateDecreaseAgainstMinBoundary(qty, quantityMin);
+            }
+
+            // update hidden input
+            viewModel.quantity.$input.val(qty);
+            // update text
+            viewModel.quantity.$text.text(qty);
+            // perform validation after updating product quantity
+            this.addToCartValidator.performCheck();
+
+            this.updateProductDetailsData();
+            this.updateQtyBackorderedMessage(qty, viewModel);
+            this.updateBackorderMessage(viewModel);
+            this.toggleBackorderedContainer(viewModel);
+            this.updateAddToCartForQty(qty, viewModel);
+            this.picklistBackorder.rerender(qty);
+        });
+
+        // Prevent triggering quantity change when pressing enter
+        this.$scope.on('keypress', '.form-input--incrementTotal', event => {
+            // If the browser supports event.which, then use event.which, otherwise use event.keyCode
+            const x = event.which || event.keyCode;
+            if (x === 13) {
+                // Prevent default
+                event.preventDefault();
+            }
+        });
+
+        this.$scope.on('keyup', '.form-input--incrementTotal', () => {
+            const viewModel = this.getViewModel(this.$scope);
+            const qty = parseInt(viewModel.quantity.$input.val(), 10) || 0;
+            this.updateProductDetailsData();
+            this.updateQtyBackorderedMessage(qty, viewModel);
+            this.updateBackorderMessage(viewModel);
+            this.toggleBackorderedContainer(viewModel);
+            this.updateAddToCartForQty(qty, viewModel);
+            this.picklistBackorder.rerender(qty);
+        });
+    }
+
+    /**
+     *
+     * Add a product to cart
+     *
+     */
+    addProductToCart(event, form) {
+        const $addToCartBtn = $('#form-action-addToCart', $(event.target));
+        const originalBtnVal = $addToCartBtn.val();
+        const waitMessage = $addToCartBtn.data('waitMessage');
+
+        // Do not do AJAX if browser doesn't support FormData
+        if (window.FormData === undefined) {
+            return;
+        }
+
+        // Prevent default
+        event.preventDefault();
+
+        $addToCartBtn
+            .val(waitMessage)
+            .prop('disabled', true);
+
+        this.$overlay.show();
+
+        // Add item to cart
+        utils.api.cart.itemAdd(normalizeFormData(new FormData(form)), (err, response) => {
+            currencySelector(response.data.cart_id);
+            const errorMessage = err || response.data.error;
+
+            $addToCartBtn
+                .val(originalBtnVal)
+                .prop('disabled', false);
+
+            this.$overlay.hide();
+
+            // Guard statement
+            if (errorMessage) {
+                // Strip the HTML from the error message
+                const tmp = document.createElement('DIV');
+                tmp.innerHTML = errorMessage;
+
+                if (!this.checkIsQuickViewChild($addToCartBtn)) {
+                    alertModal().$preModalFocusedEl = $addToCartBtn;
+                }
+
+                return showAlertModal(tmp.textContent || tmp.innerText);
+            }
+
+            // Open preview modal and update content
+            if (this.previewModal) {
+                this.previewModal.open();
+
+                if (window.ApplePaySession) {
+                    this.previewModal.$modal.addClass('apple-pay-supported');
+                }
+
+                if (!this.checkIsQuickViewChild($addToCartBtn)) {
+                    this.previewModal.$preModalFocusedEl = $addToCartBtn;
+                }
+
+                this.updateCartContent(this.previewModal, response.data.cart_item.id);
+            } else {
+                this.$overlay.show();
+                // if no modal, redirect to the cart page
+                this.redirectTo(response.data.cart_item.cart_url || this.context.urls.cart);
+            }
+        }, { baseUrl: this.context.secureBaseUrl });
+
+        this.setLiveRegionAttributes($addToCartBtn.next(), 'status', 'polite');
+    }
+
+    /**
+     * Get cart contents
+     *
+     * @param {String} cartItemId
+     * @param {Function} onComplete
+     */
+    getCartContent(cartItemId, onComplete) {
+        const options = {
+            template: 'cart/preview',
+            params: {
+                suggest: cartItemId,
+            },
+            config: {
+                cart: {
+                    suggestions: {
+                        limit: 4,
+                    },
+                },
+            },
+            baseUrl: this.context.secureBaseUrl,
+        };
+
+        utils.api.cart.getContent(options, onComplete);
+    }
+
+    /**
+     * Redirect to url
+     *
+     * @param {String} url
+     */
+    redirectTo(url) {
+        if (this.isRunningInIframe() && !window.iframeSdk) {
+            window.top.location = url;
+        } else {
+            window.location = url;
+        }
+    }
+
+    /**
+     * Update cart content
+     *
+     * @param {Modal} modal
+     * @param {String} cartItemId
+     * @param {Function} onComplete
+     */
+    updateCartContent(modal, cartItemId, onComplete) {
+        this.getCartContent(cartItemId, (err, response) => {
+            if (err) {
+                return;
+            }
+
+            modal.updateContent(response);
+
+            // Update cart counter
+            const $body = $('body');
+            const $cartQuantity = $('[data-cart-quantity]', modal.$content);
+            const $cartCounter = $('.navUser-action .cart-count');
+            const quantity = $cartQuantity.data('cartQuantity') || 0;
+            const $promotionBanner = $('[data-promotion-banner]');
+            const $backToShopppingBtn = $('.previewCartCheckout > [data-reveal-close]');
+            const $modalCloseBtn = $('#previewModal > .modal-close');
+            const bannerUpdateHandler = () => {
+                const $productContainer = $('#main-content > .container');
+
+                $productContainer.append('<div class="loadingOverlay pdp-update"></div>');
+                $('.loadingOverlay.pdp-update', $productContainer).show();
+                window.location.reload();
+            };
+
+            $cartCounter.addClass('cart-count--positive');
+            $body.trigger('cart-quantity-update', quantity);
+
+            if (onComplete) {
+                onComplete(response);
+            }
+
+            if (this.isCartPage) {
+                modal.$modal.one(ModalEvents.closed, () => {
+                    // Close quick search overlay if it's open (ESC and backdrop click don't close it automatically)
+                    const $searchContainer = $('#quickSearch');
+                    if ($searchContainer.hasClass('is-open')) {
+                        $searchContainer.removeClass('is-open').attr('aria-hidden', 'true');
+                    }
+                    bannerUpdateHandler();
+                });
+            } else if ($promotionBanner.length && $backToShopppingBtn.length) {
+                $backToShopppingBtn.on('click', bannerUpdateHandler);
+                $modalCloseBtn.on('click', bannerUpdateHandler);
+            }
+        });
+    }
+
+    /**
+     * Hide or mark as unavailable out of stock attributes if enabled
+     * @param  {Object} data Product attribute data
+     */
+    updateProductAttributes(data) {
+        super.updateProductAttributes(data);
+        this.showProductImage(data.image);
+    }
+
+    updateProductDetailsData() {
+        const $form = $('form[data-cart-item-add]');
+        const formDataItems = $form.serializeArray();
+
+        const productDetails = {};
+
+        for (const formDataItem of formDataItems) {
+            const { name, value } = formDataItem;
+
+            if (name === 'product_id') {
+                productDetails.productId = Number(value);
+            }
+
+            if (name === 'qty[]') {
+                productDetails.quantity = Number(value);
+            }
+
+            if (name.match(/attribute/)) {
+                const productOption = {
+                    optionId: Number(name.match(/\d+/g)[0]),
+                    optionValue: value,
+                };
+
+                productDetails.optionSelections = productDetails?.optionSelections
+                    ? [...productDetails.optionSelections, productOption]
+                    : [productOption];
+            }
+        }
+
+        document.dispatchEvent(new CustomEvent('onProductUpdate', {
+            bubbles: true,
+            detail: { productDetails },
+        }));
+    }
+
+    updateDateSelector() {
+        this.$scope.each((i, scope) => {
+            function updateDays(dateOption) {
+                const monthSelector = dateOption.querySelector('select[name$="[month]"]');
+                const daySelector = dateOption.querySelector('select[name$="[day]"]');
+                const yearSelector = dateOption.querySelector('select[name$="[year]"]');
+                const month = parseInt(monthSelector.value, 10);
+                const year = parseInt(yearSelector.value, 10);
+                let daysInMonth;
+
+                if (!Number.isNaN(month) && !Number.isNaN(year)) {
+                    switch (month) {
+                    case 2:
+                        daysInMonth = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0) ? 29 : 28;
+                        break;
+                    case 4: case 6: case 9: case 11:
+                        daysInMonth = 30;
+                        break;
+                    default:
+                        daysInMonth = 31;
+                    }
+
+                    for (let day = 29; day <= 31; day++) {
+                        const option = daySelector.querySelector(`option[value="${day}"]`);
+                        if (day <= daysInMonth && !option) {
+                            daySelector.options.add(new Option(day, day));
+                        } else if (day > daysInMonth && option) {
+                            option.remove();
+                        }
+                    }
+                }
+            }
+
+            $(scope).on('change', (e) => {
+                const dateOption = e.target && e.target.closest && e.target.closest('[data-product-attribute=date]');
+
+                if (dateOption) {
+                    updateDays(dateOption);
+                }
+            });
+
+            scope.querySelectorAll('[data-product-attribute=date]').forEach(dateOption => {
+                updateDays(dateOption);
+            });
+        });
+    }
+}

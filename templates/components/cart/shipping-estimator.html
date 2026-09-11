@@ -1,0 +1,80 @@
+{{inject 'shippingCountryErrorMessage' (lang 'cart.shipping_estimator.empty_country_error')}}
+{{inject 'shippingProvinceErrorMessage' (lang 'cart.shipping_estimator.empty_province_error')}}
+
+{{#if shipping_cost}}
+    <div class="cart-total-value">
+        <div class="subtotal{{#unless multi_coupon_ui_enabled}} shipping-estimate-show{{/unless}}">
+            {{#if multi_coupon_ui_enabled}}
+                {{#and shipping_cost_discounted (if shipping_cost_discounted.formatted '!==' shipping_cost.formatted)}}
+                    <span class="price--discounted">{{shipping_cost.formatted}}</span>
+                    <span id="shipping-cost-discounted">{{shipping_cost_discounted.formatted}}</span>
+                {{else}}
+                    <span id="shipping-cost-discounted">{{shipping_cost.formatted}}</span>
+                {{/and}}
+            {{else}}
+                <a href="#" class="shipping-estimate-value">
+                    <span class="{{#if shipping_cost_discounted}}price--discounted{{/if}}">{{shipping_cost.formatted}}</span>
+                    {{#if shipping_cost_discounted}}
+                        <span id="shipping-cost-discounted">{{shipping_cost_discounted.formatted}}</span>
+                    {{/if}}
+                </a>
+            {{/if}}
+        </div>
+    </div>
+{{/if}}
+
+<div id="add-shipping" class="shipping-estimator u-hidden">
+    <form class="form estimator-form" data-shipping-estimator>
+        <dl>
+            <dt class="estimator-form-label">
+                <label class="form-label" for="shipping-country">{{lang 'cart.shipping_estimator.select_a_country'}}</label>
+            </dt>
+
+            <dd class="estimator-form-input">
+                <select class="form-select" id="shipping-country" name="shipping-country" data-field-type="Country">
+                    <option>{{lang 'cart.shipping_estimator.select_a_country'}}</option>
+                    {{#each countries}}
+                        <option value="{{id}}" {{#if selected}}selected="selected"{{/if}}>
+                            {{name}}
+                        </option>
+                    {{/each}}
+                </select>
+            </dd>
+
+            <dt class="estimator-form-label">
+                <label class="form-label" for="shipping-state">{{lang 'cart.shipping_estimator.select_a_state'}}</label>
+            </dt>
+
+            <dd class="estimator-form-input">
+                {{#if states.length}}
+                    <select class="form-select" id="shipping-state" name="shipping-state" data-field-type="State">
+                        <option>{{lang 'cart.shipping_estimator.select_a_state'}}</option>
+                        {{#each states}}
+                            <option value="{{id}}" {{#if selected}}selected="selected"{{/if}}>
+                                {{name}}
+                            </option>
+                        {{/each}}
+                    </select>
+                {{else}}
+                    <input class="form-input" type="text" id="shipping-state" name="shipping-state" data-field-type="State" placeholder="{{lang 'cart.shipping_estimator.select_a_state'}}">
+                {{/if}}
+            </dd>
+
+            <dt class="estimator-form-label">
+                <label class="form-label" for="shipping-city">{{lang 'cart.shipping_estimator.suburb_city'}}</label>
+            </dt>
+            <dd class="estimator-form-input">
+                <input class="form-input" type="text" id="shipping-city" name="shipping-city" value="{{selected_city}}" placeholder="{{lang 'cart.shipping_estimator.suburb_city'}}">
+            </dd>
+
+            <dt class="estimator-form-label">
+                <label class="form-label" for="shipping-zip">{{lang 'cart.shipping_estimator.zip_postal_code'}}</label>
+            </dt>
+            <dd class="estimator-form-input">
+                <input autocomplete="postal-code" class="form-input" type="text" id="shipping-zip" name="shipping-zip" value="{{selected_zip}}" placeholder="{{lang 'cart.shipping_estimator.zip_postal_code'}}">
+            </dd>
+            <button class="button button--primary button--small shipping-estimate-submit">{{lang 'cart.shipping_estimator.estimate_shipping'}}</button>
+        </dl>
+    </form>
+    <div class="shipping-quotes" role="alert" aria-atomic="true" aria-live="assertive"></div>
+</div>

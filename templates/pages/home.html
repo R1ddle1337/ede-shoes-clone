@@ -1,0 +1,17 @@
+---
+products:
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+---
+{{#partial "page"}}
+<main class="ede-home" id="main-content">
+    <section class="ede-hero" aria-labelledby="ede-hero-title">
+        <picture><source media="(max-width: 700px)" srcset="{{cdn 'assets/img/ede/home-hero-mobile-v4.jpg'}}"><img src="{{cdn 'assets/img/ede/home-hero-v4.jpg'}}" alt="Handmade barefoot leather shoes crafted in the Ede atelier" fetchpriority="high"></picture>
+        <div class="ede-hero-copy"><p class="ede-eyebrow">Handmade in Türkiye since 1950</p><h1 id="ede-hero-title">Barefoot shoes,<br>made by hand.</h1><p>Original manufacturer behind barefoot brands you know.</p><div class="ede-cta-row"><a class="ede-btn ede-btn-light" href="/women-shoes/">Shop women's</a><a class="ede-btn ede-btn-outline" href="/mens-shoes/">Shop men's</a></div></div>
+    </section>
+    <section class="ede-paths" id="choose-path" aria-labelledby="path-title"><p class="ede-eyebrow">Work with Ede</p><h2 id="path-title">Choose your program</h2><div class="ede-path-grid"><a class="ede-path-card" href="/dropshipping-program/"><span class="ede-card-kicker">Dropshipping</span><h3>Sell online.<br>Start from one pair.</h3><p>We make, pack and ship each order for you. Delivered duty-paid.</p><span class="ede-card-link">See how it works →</span></a><a class="ede-path-card" href="/wholesale-program/"><span class="ede-card-kicker">Wholesale</span><h3>Stock your store.<br>From 10 pairs.</h3><p>Carton pricing, reliable production and your logo inside every shoe.</p><span class="ede-card-link">Compare the programs →</span></a></div></section>
+    <section class="ede-craft" aria-labelledby="craft-title"><div class="ede-craft-intro"><p class="ede-eyebrow">The Ede way</p><h2 id="craft-title">600 years of craft.<br>Your brand.</h2><p>Full-grain leather, hand-stitched soles and a wide, natural toe box. Every pair is made to order in our Gaziantep atelier.</p><a class="ede-text-link" href="/our-atelier/">See inside the workshop →</a></div><div class="ede-strip"><figure><img src="{{cdn 'assets/img/ede/strip-NEW-01.jpg'}}" alt="Craftsman cutting full-grain leather in the Ede atelier" loading="lazy"><figcaption><b>01</b> Cutting the hide</figcaption></figure><figure><img src="{{cdn 'assets/img/ede/strip-NEW-02.jpg'}}" alt="Craftsman holding hand-cut buffalo leather soles" loading="lazy"><figcaption><b>02</b> Shaping the buffalo sole</figcaption></figure><figure><img src="{{cdn 'assets/img/ede/strip-NEW-03.jpg'}}" alt="Hand-stitching the sole of a barefoot loafer at Ede" loading="lazy"><figcaption><b>03</b> Stitched by hand, pair by pair</figcaption></figure></div></section>
+    {{#if products.featured}}<section class="ede-featured" aria-labelledby="featured-title"><p class="ede-eyebrow">The collection</p><h2 id="featured-title">Made for everyday grounding</h2>{{> components/products/featured products=products.featured columns=4}}<a class="ede-btn ede-btn-dark" href="/women-shoes/">View all shoes</a></section>{{/if}}
+</main>
+{{/partial}}
+{{> layout/base}}

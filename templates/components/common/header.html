@@ -1,0 +1,53 @@
+<a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+    {{#each (limit banners.top_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+<header class="header ede-header" role="banner">
+    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+    </a>
+    <div class="ede-header-inner">
+        <a class="ede-menu-toggle mobileMenu-toggle" href="#" data-mobile-menu-toggle="menu" aria-label="Open menu"><span></span><span></span><span></span></a>
+        <a class="ede-brand" href="{{urls.home}}" aria-label="Ede — Maison de Artisan">
+            <img src="{{cdn 'assets/img/ede/ede-logo-yatay-kahve.png'}}" alt="Ede — Maison de Artisan" width="180" height="84">
+        </a>
+        <nav class="ede-desktop-nav" aria-label="Primary navigation">
+            <a href="/women-shoes/">Women's</a>
+            <a href="/mens-shoes/">Men's</a>
+            <a href="/dropshipping-program/">Dropship</a>
+            <a href="/wholesale-program/">Wholesale</a>
+            <a href="/our-atelier/">Our Atelier</a>
+            <a href="/process/">Process</a>
+            <a href="/apply-for-wholesale/">Partner With Us</a>
+        </nav>
+        <div class="ede-actions">
+            <a href="{{urls.search}}" aria-label="Search">⌕</a>
+            <a href="{{urls.account.index}}" aria-label="Account">♙</a>
+            <a href="{{urls.cart}}" aria-label="Cart">🛒 <span class="cart-count">{{cart.items.length}}</span></a>
+        </div>
+    </div>
+
+    {{#if page_type '===' 'default'}}
+        <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+            {{> components/common/store-logo}}
+        </h1>
+    {{else}}
+        <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+            {{> components/common/store-logo}}
+        </div>
+    {{/if}}
+    <div class="navPages-container ede-mobile-nav" id="menu" data-menu>
+        {{> components/common/navigation-menu}}
+    </div>
+    {{{region name="header_navigation_bottom--global"}}}
+</header>
+{{{region name="header_bottom--global"}}}
+{{{region name="header_bottom"}}}
