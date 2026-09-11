@@ -20,6 +20,11 @@ for (const item of catalog.products) {
   if (r.status === 409) { console.log('exists',sku); continue; }
   if (!r.ok) throw new Error(`${r.status} ${await r.text()}`);
   const product=(await r.json()).data;
+  for (const sourceOption of item.options || []) {
+    const optionBody={name: sourceOption.name, display_name:'Size', type:'radio_buttons', sort_order:0, option_values:(sourceOption.values||[]).map((v,i)=>({label:v.label||v.value,sort_order:i,is_default:i===0}))};
+    const or=await fetch(`${api}/catalog/products/${product.id}/options`,{method:'POST',headers,body:JSON.stringify(optionBody)});
+    if(!or.ok) console.warn('option failed',sku,or.status,await or.text());
+  }
   for (const image of item.images || []) {
     const ir=await fetch(`${api}/catalog/products/${product.id}/images`,{method:'POST',headers,body:JSON.stringify({image_url:image,sort_order:0,is_thumbnail:false})});
     if (!ir.ok) console.warn('image failed',sku,image,ir.status);

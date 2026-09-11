@@ -1,6 +1,6 @@
 {
   "source": "https://edeshoes.com/",
-  "captured_at": "2026-09-11T05:18:39Z",
+  "captured_at": "2026-09-11T05:27:55Z",
   "products": [
     {
       "url": "https://edeshoes.com/ashen-womens-loafer-barefoot-leather/",
@@ -11,7 +11,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/325/1967/1__68846.1788699572.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[329]",
+          "values": [
+            {
+              "value": "4763",
+              "label": "3-5"
+            },
+            {
+              "value": "4765",
+              "label": "4"
+            },
+            {
+              "value": "4766",
+              "label": "4-5"
+            },
+            {
+              "value": "4768",
+              "label": "5"
+            },
+            {
+              "value": "4769",
+              "label": "5-5"
+            },
+            {
+              "value": "4771",
+              "label": "6"
+            },
+            {
+              "value": "4772",
+              "label": "6-5"
+            },
+            {
+              "value": "4774",
+              "label": "7"
+            },
+            {
+              "value": "4775",
+              "label": "7-5"
+            },
+            {
+              "value": "4777",
+              "label": "8"
+            },
+            {
+              "value": "4778",
+              "label": "8-5"
+            },
+            {
+              "value": "4780",
+              "label": "9"
+            },
+            {
+              "value": "4781",
+              "label": "9-5"
+            },
+            {
+              "value": "4783",
+              "label": "10"
+            },
+            {
+              "value": "4785",
+              "label": "10-5"
+            },
+            {
+              "value": "4786",
+              "label": "11"
+            },
+            {
+              "value": "4788",
+              "label": "11-5"
+            },
+            {
+              "value": "4789",
+              "label": "12"
+            },
+            {
+              "value": "4791",
+              "label": "12-5"
+            },
+            {
+              "value": "4792",
+              "label": "13"
+            },
+            {
+              "value": "4794",
+              "label": "13-5"
+            },
+            {
+              "value": "4795",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/beige-dawn-womens-loafer-barefoot-leather/",
@@ -22,7 +117,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/272/2037/1__72136.1788699427.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[286]",
+          "values": [
+            {
+              "value": "3846",
+              "label": "3-5"
+            },
+            {
+              "value": "3847",
+              "label": "4"
+            },
+            {
+              "value": "3848",
+              "label": "4-5"
+            },
+            {
+              "value": "3849",
+              "label": "5"
+            },
+            {
+              "value": "3850",
+              "label": "5-5"
+            },
+            {
+              "value": "3851",
+              "label": "6"
+            },
+            {
+              "value": "3852",
+              "label": "6-5"
+            },
+            {
+              "value": "3853",
+              "label": "7"
+            },
+            {
+              "value": "3854",
+              "label": "7-5"
+            },
+            {
+              "value": "3855",
+              "label": "8"
+            },
+            {
+              "value": "3856",
+              "label": "8-5"
+            },
+            {
+              "value": "3857",
+              "label": "9"
+            },
+            {
+              "value": "3858",
+              "label": "9-5"
+            },
+            {
+              "value": "3859",
+              "label": "10"
+            },
+            {
+              "value": "3860",
+              "label": "10-5"
+            },
+            {
+              "value": "3861",
+              "label": "11"
+            },
+            {
+              "value": "3862",
+              "label": "11-5"
+            },
+            {
+              "value": "3863",
+              "label": "12"
+            },
+            {
+              "value": "3864",
+              "label": "12-5"
+            },
+            {
+              "value": "3865",
+              "label": "13"
+            },
+            {
+              "value": "3866",
+              "label": "13-5"
+            },
+            {
+              "value": "3867",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/daily-grounded-barefoot-shoes-balance-comfort-women-s-sunset/",
@@ -33,7 +223,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/168/2107/1__62062.1788699139.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[180]",
+          "values": [
+            {
+              "value": "1560",
+              "label": "3-5"
+            },
+            {
+              "value": "1561",
+              "label": "4"
+            },
+            {
+              "value": "1562",
+              "label": "4-5"
+            },
+            {
+              "value": "1563",
+              "label": "5"
+            },
+            {
+              "value": "1564",
+              "label": "5-5"
+            },
+            {
+              "value": "1565",
+              "label": "6"
+            },
+            {
+              "value": "1566",
+              "label": "6-5"
+            },
+            {
+              "value": "1567",
+              "label": "7"
+            },
+            {
+              "value": "1568",
+              "label": "7-5"
+            },
+            {
+              "value": "1569",
+              "label": "8"
+            },
+            {
+              "value": "1570",
+              "label": "8-5"
+            },
+            {
+              "value": "1571",
+              "label": "9"
+            },
+            {
+              "value": "1572",
+              "label": "9-5"
+            },
+            {
+              "value": "1573",
+              "label": "10"
+            },
+            {
+              "value": "1574",
+              "label": "10-5"
+            },
+            {
+              "value": "1575",
+              "label": "11"
+            },
+            {
+              "value": "1576",
+              "label": "11-5"
+            },
+            {
+              "value": "1577",
+              "label": "12"
+            },
+            {
+              "value": "1578",
+              "label": "12-5"
+            },
+            {
+              "value": "1579",
+              "label": "13"
+            },
+            {
+              "value": "1580",
+              "label": "13-5"
+            },
+            {
+              "value": "1581",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/earthing-barefoot-everyday-comfort-shoes-women-s-moonlight/",
@@ -44,7 +329,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/133/2087/1__90701.1788699040.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[153]",
+          "values": [
+            {
+              "value": "969",
+              "label": "3-5"
+            },
+            {
+              "value": "970",
+              "label": "4"
+            },
+            {
+              "value": "971",
+              "label": "4-5"
+            },
+            {
+              "value": "972",
+              "label": "5"
+            },
+            {
+              "value": "973",
+              "label": "5-5"
+            },
+            {
+              "value": "974",
+              "label": "6"
+            },
+            {
+              "value": "975",
+              "label": "6-5"
+            },
+            {
+              "value": "976",
+              "label": "7"
+            },
+            {
+              "value": "977",
+              "label": "7-5"
+            },
+            {
+              "value": "978",
+              "label": "8"
+            },
+            {
+              "value": "979",
+              "label": "8-5"
+            },
+            {
+              "value": "980",
+              "label": "9"
+            },
+            {
+              "value": "981",
+              "label": "9-5"
+            },
+            {
+              "value": "982",
+              "label": "10"
+            },
+            {
+              "value": "983",
+              "label": "10-5"
+            },
+            {
+              "value": "984",
+              "label": "11"
+            },
+            {
+              "value": "985",
+              "label": "11-5"
+            },
+            {
+              "value": "986",
+              "label": "12"
+            },
+            {
+              "value": "987",
+              "label": "12-5"
+            },
+            {
+              "value": "988",
+              "label": "13"
+            },
+            {
+              "value": "989",
+              "label": "13-5"
+            },
+            {
+              "value": "990",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/everyday-leather-barefoot-shoes-natural-comfort-women-s-azure/",
@@ -55,7 +435,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/138/2078/1__87192.1788699053.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[140]",
+          "values": [
+            {
+              "value": "687",
+              "label": "3-5"
+            },
+            {
+              "value": "688",
+              "label": "4"
+            },
+            {
+              "value": "689",
+              "label": "4-5"
+            },
+            {
+              "value": "690",
+              "label": "5"
+            },
+            {
+              "value": "691",
+              "label": "5-5"
+            },
+            {
+              "value": "692",
+              "label": "6"
+            },
+            {
+              "value": "693",
+              "label": "6-5"
+            },
+            {
+              "value": "694",
+              "label": "7"
+            },
+            {
+              "value": "695",
+              "label": "7-5"
+            },
+            {
+              "value": "696",
+              "label": "8"
+            },
+            {
+              "value": "697",
+              "label": "8-5"
+            },
+            {
+              "value": "698",
+              "label": "9"
+            },
+            {
+              "value": "699",
+              "label": "9-5"
+            },
+            {
+              "value": "700",
+              "label": "10"
+            },
+            {
+              "value": "701",
+              "label": "10-5"
+            },
+            {
+              "value": "702",
+              "label": "11"
+            },
+            {
+              "value": "703",
+              "label": "11-5"
+            },
+            {
+              "value": "704",
+              "label": "12"
+            },
+            {
+              "value": "705",
+              "label": "12-5"
+            },
+            {
+              "value": "706",
+              "label": "13"
+            },
+            {
+              "value": "707",
+              "label": "13-5"
+            },
+            {
+              "value": "708",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/harvest-gold-womens-loafer-barefoot-leather/",
@@ -66,7 +541,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/156/2071/1__99766.1788699102.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[168]",
+          "values": [
+            {
+              "value": "1282",
+              "label": "3-5"
+            },
+            {
+              "value": "1284",
+              "label": "4"
+            },
+            {
+              "value": "1287",
+              "label": "4-5"
+            },
+            {
+              "value": "1290",
+              "label": "5"
+            },
+            {
+              "value": "1292",
+              "label": "5-5"
+            },
+            {
+              "value": "1295",
+              "label": "6"
+            },
+            {
+              "value": "1298",
+              "label": "6-5"
+            },
+            {
+              "value": "1301",
+              "label": "7"
+            },
+            {
+              "value": "1303",
+              "label": "7-5"
+            },
+            {
+              "value": "1306",
+              "label": "8"
+            },
+            {
+              "value": "1308",
+              "label": "8-5"
+            },
+            {
+              "value": "1309",
+              "label": "9"
+            },
+            {
+              "value": "1310",
+              "label": "9-5"
+            },
+            {
+              "value": "1311",
+              "label": "10"
+            },
+            {
+              "value": "1312",
+              "label": "10-5"
+            },
+            {
+              "value": "1313",
+              "label": "11"
+            },
+            {
+              "value": "1314",
+              "label": "11-5"
+            },
+            {
+              "value": "1315",
+              "label": "12"
+            },
+            {
+              "value": "1316",
+              "label": "12-5"
+            },
+            {
+              "value": "1317",
+              "label": "13"
+            },
+            {
+              "value": "1318",
+              "label": "13-5"
+            },
+            {
+              "value": "1319",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/hickory-womens-loafer-barefoot-leather/",
@@ -77,7 +647,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/196/2097/1__73721.1788699215.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[209]",
+          "values": [
+            {
+              "value": "2187",
+              "label": "3.5"
+            },
+            {
+              "value": "2188",
+              "label": "4"
+            },
+            {
+              "value": "2189",
+              "label": "4.5"
+            },
+            {
+              "value": "2190",
+              "label": "5"
+            },
+            {
+              "value": "2191",
+              "label": "5.5"
+            },
+            {
+              "value": "2192",
+              "label": "6"
+            },
+            {
+              "value": "2193",
+              "label": "6.5"
+            },
+            {
+              "value": "2194",
+              "label": "7"
+            },
+            {
+              "value": "2195",
+              "label": "7.5"
+            },
+            {
+              "value": "2196",
+              "label": "8"
+            },
+            {
+              "value": "2197",
+              "label": "8.5"
+            },
+            {
+              "value": "2198",
+              "label": "9"
+            },
+            {
+              "value": "2199",
+              "label": "9.5"
+            },
+            {
+              "value": "2200",
+              "label": "10"
+            },
+            {
+              "value": "2201",
+              "label": "10.5"
+            },
+            {
+              "value": "2202",
+              "label": "11"
+            },
+            {
+              "value": "2203",
+              "label": "11.5"
+            },
+            {
+              "value": "2204",
+              "label": "12"
+            },
+            {
+              "value": "2205",
+              "label": "12.5"
+            },
+            {
+              "value": "2206",
+              "label": "13"
+            },
+            {
+              "value": "2207",
+              "label": "13.5"
+            },
+            {
+              "value": "2208",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/indigo-womens-loafer-barefoot-leather/",
@@ -88,7 +753,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/342/1991/1__69414.1788699624.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[340]",
+          "values": [
+            {
+              "value": "5014",
+              "label": "3.5"
+            },
+            {
+              "value": "5015",
+              "label": "4"
+            },
+            {
+              "value": "5016",
+              "label": "4.5"
+            },
+            {
+              "value": "5017",
+              "label": "5"
+            },
+            {
+              "value": "5018",
+              "label": "5.5"
+            },
+            {
+              "value": "5019",
+              "label": "6"
+            },
+            {
+              "value": "5020",
+              "label": "6.5"
+            },
+            {
+              "value": "5021",
+              "label": "7"
+            },
+            {
+              "value": "5022",
+              "label": "7.5"
+            },
+            {
+              "value": "5023",
+              "label": "8"
+            },
+            {
+              "value": "5024",
+              "label": "8.5"
+            },
+            {
+              "value": "5025",
+              "label": "9"
+            },
+            {
+              "value": "5026",
+              "label": "9.5"
+            },
+            {
+              "value": "5027",
+              "label": "10"
+            },
+            {
+              "value": "5028",
+              "label": "10.5"
+            },
+            {
+              "value": "5029",
+              "label": "11"
+            },
+            {
+              "value": "5030",
+              "label": "11.5"
+            },
+            {
+              "value": "5031",
+              "label": "12"
+            },
+            {
+              "value": "5032",
+              "label": "12.5"
+            },
+            {
+              "value": "5033",
+              "label": "13"
+            },
+            {
+              "value": "5034",
+              "label": "13.5"
+            },
+            {
+              "value": "5035",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/men-barefoot-leather-shoe-grounding-handmade-ocean/",
@@ -99,7 +859,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/240/2576/2__05690.1788699338.png?c=1"
       ],
       "price": "109",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[236]",
+          "values": [
+            {
+              "value": "2767",
+              "label": "3-5"
+            },
+            {
+              "value": "2768",
+              "label": "4"
+            },
+            {
+              "value": "2769",
+              "label": "4-5"
+            },
+            {
+              "value": "2770",
+              "label": "5"
+            },
+            {
+              "value": "2771",
+              "label": "5-5"
+            },
+            {
+              "value": "2772",
+              "label": "6"
+            },
+            {
+              "value": "2773",
+              "label": "6-5"
+            },
+            {
+              "value": "2774",
+              "label": "7"
+            },
+            {
+              "value": "2775",
+              "label": "7-5"
+            },
+            {
+              "value": "2776",
+              "label": "8"
+            },
+            {
+              "value": "2777",
+              "label": "8-5"
+            },
+            {
+              "value": "2778",
+              "label": "9"
+            },
+            {
+              "value": "2779",
+              "label": "9-5"
+            },
+            {
+              "value": "2780",
+              "label": "10"
+            },
+            {
+              "value": "2781",
+              "label": "10-5"
+            },
+            {
+              "value": "2782",
+              "label": "11"
+            },
+            {
+              "value": "2783",
+              "label": "11-5"
+            },
+            {
+              "value": "2784",
+              "label": "12"
+            },
+            {
+              "value": "2785",
+              "label": "12-5"
+            },
+            {
+              "value": "2786",
+              "label": "13"
+            },
+            {
+              "value": "2787",
+              "label": "13-5"
+            },
+            {
+              "value": "2788",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/men-barefoot-leather-sneaker-grounding-handmade-earth/",
@@ -110,7 +965,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/262/2563/2__96081.1788699400.png?c=1"
       ],
       "price": "109",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[271]",
+          "values": [
+            {
+              "value": "3521",
+              "label": "3-5"
+            },
+            {
+              "value": "3522",
+              "label": "4"
+            },
+            {
+              "value": "3523",
+              "label": "4-5"
+            },
+            {
+              "value": "3524",
+              "label": "5"
+            },
+            {
+              "value": "3525",
+              "label": "5-5"
+            },
+            {
+              "value": "3526",
+              "label": "6"
+            },
+            {
+              "value": "3527",
+              "label": "6-5"
+            },
+            {
+              "value": "3528",
+              "label": "7"
+            },
+            {
+              "value": "3529",
+              "label": "7-5"
+            },
+            {
+              "value": "3530",
+              "label": "8"
+            },
+            {
+              "value": "3531",
+              "label": "8-5"
+            },
+            {
+              "value": "3532",
+              "label": "9"
+            },
+            {
+              "value": "3533",
+              "label": "9-5"
+            },
+            {
+              "value": "3534",
+              "label": "10"
+            },
+            {
+              "value": "3535",
+              "label": "10-5"
+            },
+            {
+              "value": "3536",
+              "label": "11"
+            },
+            {
+              "value": "3537",
+              "label": "11-5"
+            },
+            {
+              "value": "3538",
+              "label": "12"
+            },
+            {
+              "value": "3539",
+              "label": "12-5"
+            },
+            {
+              "value": "3540",
+              "label": "13"
+            },
+            {
+              "value": "3541",
+              "label": "13-5"
+            },
+            {
+              "value": "3542",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/men-barefoot-leather-sneaker-grounding-handmade-evergreen/",
@@ -121,7 +1071,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/185/2578/2__17894.1788699184.png?c=1"
       ],
       "price": "109",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[179]",
+          "values": [
+            {
+              "value": "1538",
+              "label": "3-5"
+            },
+            {
+              "value": "1539",
+              "label": "4"
+            },
+            {
+              "value": "1540",
+              "label": "4-5"
+            },
+            {
+              "value": "1541",
+              "label": "5"
+            },
+            {
+              "value": "1542",
+              "label": "5-5"
+            },
+            {
+              "value": "1543",
+              "label": "6"
+            },
+            {
+              "value": "1544",
+              "label": "6-5"
+            },
+            {
+              "value": "1545",
+              "label": "7"
+            },
+            {
+              "value": "1546",
+              "label": "7-5"
+            },
+            {
+              "value": "1547",
+              "label": "8"
+            },
+            {
+              "value": "1548",
+              "label": "8-5"
+            },
+            {
+              "value": "1549",
+              "label": "9"
+            },
+            {
+              "value": "1550",
+              "label": "9-5"
+            },
+            {
+              "value": "1551",
+              "label": "10"
+            },
+            {
+              "value": "1552",
+              "label": "10-5"
+            },
+            {
+              "value": "1553",
+              "label": "11"
+            },
+            {
+              "value": "1554",
+              "label": "11-5"
+            },
+            {
+              "value": "1555",
+              "label": "12"
+            },
+            {
+              "value": "1556",
+              "label": "12-5"
+            },
+            {
+              "value": "1557",
+              "label": "13"
+            },
+            {
+              "value": "1558",
+              "label": "13-5"
+            },
+            {
+              "value": "1559",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/men-barefoot-leather-sneaker-grounding-handmade-hickory/",
@@ -132,7 +1177,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/209/2570/2__03578.1788699250.png?c=1"
       ],
       "price": "109",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[212]",
+          "values": [
+            {
+              "value": "2253",
+              "label": "3-5"
+            },
+            {
+              "value": "2254",
+              "label": "4"
+            },
+            {
+              "value": "2255",
+              "label": "4-5"
+            },
+            {
+              "value": "2256",
+              "label": "5"
+            },
+            {
+              "value": "2257",
+              "label": "5-5"
+            },
+            {
+              "value": "2258",
+              "label": "6"
+            },
+            {
+              "value": "2259",
+              "label": "6-5"
+            },
+            {
+              "value": "2260",
+              "label": "7"
+            },
+            {
+              "value": "2261",
+              "label": "7-5"
+            },
+            {
+              "value": "2262",
+              "label": "8"
+            },
+            {
+              "value": "2263",
+              "label": "8-5"
+            },
+            {
+              "value": "2264",
+              "label": "9"
+            },
+            {
+              "value": "2265",
+              "label": "9-5"
+            },
+            {
+              "value": "2266",
+              "label": "10"
+            },
+            {
+              "value": "2267",
+              "label": "10-5"
+            },
+            {
+              "value": "2268",
+              "label": "11"
+            },
+            {
+              "value": "2269",
+              "label": "11-5"
+            },
+            {
+              "value": "2270",
+              "label": "12"
+            },
+            {
+              "value": "2271",
+              "label": "12-5"
+            },
+            {
+              "value": "2272",
+              "label": "13"
+            },
+            {
+              "value": "2273",
+              "label": "13-5"
+            },
+            {
+              "value": "2274",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/men-barefoot-leather-sneaker-grounding-handmade-raven-black/",
@@ -143,7 +1283,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/228/2565/2__19979.1788699306.png?c=1"
       ],
       "price": "109",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[225]",
+          "values": [
+            {
+              "value": "2526",
+              "label": "3-5"
+            },
+            {
+              "value": "2528",
+              "label": "4"
+            },
+            {
+              "value": "2531",
+              "label": "4-5"
+            },
+            {
+              "value": "2533",
+              "label": "5"
+            },
+            {
+              "value": "2535",
+              "label": "5-5"
+            },
+            {
+              "value": "2536",
+              "label": "6"
+            },
+            {
+              "value": "2537",
+              "label": "6-5"
+            },
+            {
+              "value": "2538",
+              "label": "7"
+            },
+            {
+              "value": "2539",
+              "label": "7-5"
+            },
+            {
+              "value": "2540",
+              "label": "8"
+            },
+            {
+              "value": "2541",
+              "label": "8-5"
+            },
+            {
+              "value": "2542",
+              "label": "9"
+            },
+            {
+              "value": "2543",
+              "label": "9-5"
+            },
+            {
+              "value": "2544",
+              "label": "10"
+            },
+            {
+              "value": "2545",
+              "label": "10-5"
+            },
+            {
+              "value": "2546",
+              "label": "11"
+            },
+            {
+              "value": "2547",
+              "label": "11-5"
+            },
+            {
+              "value": "2548",
+              "label": "12"
+            },
+            {
+              "value": "2549",
+              "label": "12-5"
+            },
+            {
+              "value": "2550",
+              "label": "13"
+            },
+            {
+              "value": "2551",
+              "label": "13-5"
+            },
+            {
+              "value": "2552",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/men-barefoot-leather-sneaker-grounding-handmade-russet/",
@@ -154,7 +1389,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/197/2568/3__88699.1788699217.png?c=1"
       ],
       "price": "109",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[191]",
+          "values": [
+            {
+              "value": "1796",
+              "label": "3-5"
+            },
+            {
+              "value": "1797",
+              "label": "4"
+            },
+            {
+              "value": "1798",
+              "label": "4-5"
+            },
+            {
+              "value": "1799",
+              "label": "5"
+            },
+            {
+              "value": "1800",
+              "label": "5-5"
+            },
+            {
+              "value": "1801",
+              "label": "6"
+            },
+            {
+              "value": "1802",
+              "label": "6-5"
+            },
+            {
+              "value": "1803",
+              "label": "7"
+            },
+            {
+              "value": "1804",
+              "label": "7-5"
+            },
+            {
+              "value": "1805",
+              "label": "8"
+            },
+            {
+              "value": "1806",
+              "label": "8-5"
+            },
+            {
+              "value": "1807",
+              "label": "9"
+            },
+            {
+              "value": "1808",
+              "label": "9-5"
+            },
+            {
+              "value": "1809",
+              "label": "10"
+            },
+            {
+              "value": "1810",
+              "label": "10-5"
+            },
+            {
+              "value": "1811",
+              "label": "11"
+            },
+            {
+              "value": "1812",
+              "label": "11-5"
+            },
+            {
+              "value": "1813",
+              "label": "12"
+            },
+            {
+              "value": "1814",
+              "label": "12-5"
+            },
+            {
+              "value": "1815",
+              "label": "13"
+            },
+            {
+              "value": "1816",
+              "label": "13-5"
+            },
+            {
+              "value": "1817",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/men-barefoot-leather-sneaker-grounding-handmade-sand/",
@@ -165,7 +1495,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/287/2572/2__68470.1788699471.png?c=1"
       ],
       "price": "109",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[283]",
+          "values": [
+            {
+              "value": "3782",
+              "label": "3-5"
+            },
+            {
+              "value": "3783",
+              "label": "4"
+            },
+            {
+              "value": "3784",
+              "label": "4-5"
+            },
+            {
+              "value": "3785",
+              "label": "5"
+            },
+            {
+              "value": "3786",
+              "label": "5-5"
+            },
+            {
+              "value": "3787",
+              "label": "6"
+            },
+            {
+              "value": "3788",
+              "label": "6-5"
+            },
+            {
+              "value": "3789",
+              "label": "7"
+            },
+            {
+              "value": "3790",
+              "label": "7-5"
+            },
+            {
+              "value": "3791",
+              "label": "8"
+            },
+            {
+              "value": "3792",
+              "label": "8-5"
+            },
+            {
+              "value": "3793",
+              "label": "9"
+            },
+            {
+              "value": "3794",
+              "label": "9-5"
+            },
+            {
+              "value": "3795",
+              "label": "10"
+            },
+            {
+              "value": "3796",
+              "label": "10-5"
+            },
+            {
+              "value": "3797",
+              "label": "11"
+            },
+            {
+              "value": "3798",
+              "label": "11-5"
+            },
+            {
+              "value": "3799",
+              "label": "12"
+            },
+            {
+              "value": "3800",
+              "label": "12-5"
+            },
+            {
+              "value": "3801",
+              "label": "13"
+            },
+            {
+              "value": "3802",
+              "label": "13-5"
+            },
+            {
+              "value": "3803",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/men-barefoot-leather-sneaker-grounding-handmade-umber/",
@@ -176,7 +1601,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/252/2574/2__82849.1788699369.png?c=1"
       ],
       "price": "109",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[245]",
+          "values": [
+            {
+              "value": "2963",
+              "label": "3-5"
+            },
+            {
+              "value": "2964",
+              "label": "4"
+            },
+            {
+              "value": "2965",
+              "label": "4-5"
+            },
+            {
+              "value": "2966",
+              "label": "5"
+            },
+            {
+              "value": "2967",
+              "label": "5-5"
+            },
+            {
+              "value": "2968",
+              "label": "6"
+            },
+            {
+              "value": "2969",
+              "label": "6-5"
+            },
+            {
+              "value": "2970",
+              "label": "7"
+            },
+            {
+              "value": "2971",
+              "label": "7-5"
+            },
+            {
+              "value": "2972",
+              "label": "8"
+            },
+            {
+              "value": "2973",
+              "label": "8-5"
+            },
+            {
+              "value": "2974",
+              "label": "9"
+            },
+            {
+              "value": "2975",
+              "label": "9-5"
+            },
+            {
+              "value": "2976",
+              "label": "10"
+            },
+            {
+              "value": "2977",
+              "label": "10-5"
+            },
+            {
+              "value": "2978",
+              "label": "11"
+            },
+            {
+              "value": "2979",
+              "label": "11-5"
+            },
+            {
+              "value": "2980",
+              "label": "12"
+            },
+            {
+              "value": "2981",
+              "label": "12-5"
+            },
+            {
+              "value": "2982",
+              "label": "13"
+            },
+            {
+              "value": "2983",
+              "label": "13-5"
+            },
+            {
+              "value": "2984",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/moss-womens-loafer-barefoot-leather/",
@@ -187,7 +1707,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/274/2017/1__38233.1788699432.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[277]",
+          "values": [
+            {
+              "value": "3637",
+              "label": "3-5"
+            },
+            {
+              "value": "3640",
+              "label": "4"
+            },
+            {
+              "value": "3644",
+              "label": "4-5"
+            },
+            {
+              "value": "3649",
+              "label": "5"
+            },
+            {
+              "value": "3654",
+              "label": "5-5"
+            },
+            {
+              "value": "3659",
+              "label": "6"
+            },
+            {
+              "value": "3665",
+              "label": "6-5"
+            },
+            {
+              "value": "3668",
+              "label": "7"
+            },
+            {
+              "value": "3671",
+              "label": "7-5"
+            },
+            {
+              "value": "3675",
+              "label": "8"
+            },
+            {
+              "value": "3678",
+              "label": "8-5"
+            },
+            {
+              "value": "3681",
+              "label": "9"
+            },
+            {
+              "value": "3684",
+              "label": "9-5"
+            },
+            {
+              "value": "3686",
+              "label": "10"
+            },
+            {
+              "value": "3687",
+              "label": "10-5"
+            },
+            {
+              "value": "3688",
+              "label": "11"
+            },
+            {
+              "value": "3689",
+              "label": "11-5"
+            },
+            {
+              "value": "3690",
+              "label": "12"
+            },
+            {
+              "value": "3691",
+              "label": "12-5"
+            },
+            {
+              "value": "3692",
+              "label": "13"
+            },
+            {
+              "value": "3693",
+              "label": "13-5"
+            },
+            {
+              "value": "3694",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/natural-barefoot-leather-shoes-for-women-everyday-grounding-shoes-with-copper-crimson-red/",
@@ -198,7 +1813,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/123/2121/1__08586.1788699010.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[123]",
+          "values": [
+            {
+              "value": "312",
+              "label": "3-5"
+            },
+            {
+              "value": "315",
+              "label": "4"
+            },
+            {
+              "value": "318",
+              "label": "4-5"
+            },
+            {
+              "value": "319",
+              "label": "5"
+            },
+            {
+              "value": "320",
+              "label": "5-5"
+            },
+            {
+              "value": "321",
+              "label": "6"
+            },
+            {
+              "value": "322",
+              "label": "6-5"
+            },
+            {
+              "value": "323",
+              "label": "7"
+            },
+            {
+              "value": "324",
+              "label": "7-5"
+            },
+            {
+              "value": "327",
+              "label": "8"
+            },
+            {
+              "value": "330",
+              "label": "8-5"
+            },
+            {
+              "value": "332",
+              "label": "9"
+            },
+            {
+              "value": "335",
+              "label": "9-5"
+            },
+            {
+              "value": "338",
+              "label": "10"
+            },
+            {
+              "value": "341",
+              "label": "10-5"
+            },
+            {
+              "value": "343",
+              "label": "11"
+            },
+            {
+              "value": "346",
+              "label": "11-5"
+            },
+            {
+              "value": "349",
+              "label": "12"
+            },
+            {
+              "value": "352",
+              "label": "12-5"
+            },
+            {
+              "value": "354",
+              "label": "13"
+            },
+            {
+              "value": "357",
+              "label": "13-5"
+            },
+            {
+              "value": "359",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/russet-womens-loafer-barefoot-leather/",
@@ -209,7 +1919,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/329/2004/1__12952.1788699582.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[332]",
+          "values": [
+            {
+              "value": "4838",
+              "label": "3-5"
+            },
+            {
+              "value": "4839",
+              "label": "4"
+            },
+            {
+              "value": "4840",
+              "label": "4-5"
+            },
+            {
+              "value": "4841",
+              "label": "5"
+            },
+            {
+              "value": "4842",
+              "label": "5-5"
+            },
+            {
+              "value": "4843",
+              "label": "6"
+            },
+            {
+              "value": "4844",
+              "label": "6-5"
+            },
+            {
+              "value": "4845",
+              "label": "7"
+            },
+            {
+              "value": "4846",
+              "label": "7-5"
+            },
+            {
+              "value": "4847",
+              "label": "8"
+            },
+            {
+              "value": "4848",
+              "label": "8-5"
+            },
+            {
+              "value": "4849",
+              "label": "9"
+            },
+            {
+              "value": "4850",
+              "label": "9-5"
+            },
+            {
+              "value": "4851",
+              "label": "10"
+            },
+            {
+              "value": "4852",
+              "label": "10-5"
+            },
+            {
+              "value": "4853",
+              "label": "11"
+            },
+            {
+              "value": "4854",
+              "label": "11-5"
+            },
+            {
+              "value": "4855",
+              "label": "12"
+            },
+            {
+              "value": "4856",
+              "label": "12-5"
+            },
+            {
+              "value": "4857",
+              "label": "13"
+            },
+            {
+              "value": "4858",
+              "label": "13-5"
+            },
+            {
+              "value": "4859",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/sand-womens-loafer-barefoot-leather/",
@@ -220,7 +2025,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/241/2056/1__42424.1788699340.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[246]",
+          "values": [
+            {
+              "value": "2985",
+              "label": "3-5"
+            },
+            {
+              "value": "2986",
+              "label": "4"
+            },
+            {
+              "value": "2987",
+              "label": "4-5"
+            },
+            {
+              "value": "2988",
+              "label": "5"
+            },
+            {
+              "value": "2989",
+              "label": "5-5"
+            },
+            {
+              "value": "2990",
+              "label": "6"
+            },
+            {
+              "value": "2991",
+              "label": "6-5"
+            },
+            {
+              "value": "2992",
+              "label": "7"
+            },
+            {
+              "value": "2993",
+              "label": "7-5"
+            },
+            {
+              "value": "2994",
+              "label": "8"
+            },
+            {
+              "value": "2995",
+              "label": "8-5"
+            },
+            {
+              "value": "2996",
+              "label": "9"
+            },
+            {
+              "value": "2997",
+              "label": "9-5"
+            },
+            {
+              "value": "2998",
+              "label": "10"
+            },
+            {
+              "value": "2999",
+              "label": "10-5"
+            },
+            {
+              "value": "3000",
+              "label": "11"
+            },
+            {
+              "value": "3001",
+              "label": "11-5"
+            },
+            {
+              "value": "3002",
+              "label": "12"
+            },
+            {
+              "value": "3003",
+              "label": "12-5"
+            },
+            {
+              "value": "3004",
+              "label": "13"
+            },
+            {
+              "value": "3005",
+              "label": "13-5"
+            },
+            {
+              "value": "3006",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/wellness-barefoot-minimalist-shoes-white-grounded-comfort-cloud/",
@@ -231,7 +2131,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/242/2048/1__08018.1788699343.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[243]",
+          "values": [
+            {
+              "value": "2919",
+              "label": "3-5"
+            },
+            {
+              "value": "2920",
+              "label": "4"
+            },
+            {
+              "value": "2921",
+              "label": "4-5"
+            },
+            {
+              "value": "2922",
+              "label": "5"
+            },
+            {
+              "value": "2923",
+              "label": "5-5"
+            },
+            {
+              "value": "2924",
+              "label": "6"
+            },
+            {
+              "value": "2925",
+              "label": "6-5"
+            },
+            {
+              "value": "2926",
+              "label": "7"
+            },
+            {
+              "value": "2927",
+              "label": "7-5"
+            },
+            {
+              "value": "2928",
+              "label": "8"
+            },
+            {
+              "value": "2929",
+              "label": "8-5"
+            },
+            {
+              "value": "2930",
+              "label": "9"
+            },
+            {
+              "value": "2931",
+              "label": "9-5"
+            },
+            {
+              "value": "2932",
+              "label": "10"
+            },
+            {
+              "value": "2933",
+              "label": "10-5"
+            },
+            {
+              "value": "2934",
+              "label": "11"
+            },
+            {
+              "value": "2935",
+              "label": "11-5"
+            },
+            {
+              "value": "2936",
+              "label": "12"
+            },
+            {
+              "value": "2937",
+              "label": "12-5"
+            },
+            {
+              "value": "2938",
+              "label": "13"
+            },
+            {
+              "value": "2939",
+              "label": "13-5"
+            },
+            {
+              "value": "2940",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/women-barefoot-grounding-shoes-handmade-leather-easy-exchange-umber-brown-crazy/",
@@ -242,7 +2237,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/330/1994/1__02355.1788699585.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[335]",
+          "values": [
+            {
+              "value": "4901",
+              "label": "3-5"
+            },
+            {
+              "value": "4902",
+              "label": "4"
+            },
+            {
+              "value": "4903",
+              "label": "4-5"
+            },
+            {
+              "value": "4904",
+              "label": "5"
+            },
+            {
+              "value": "4905",
+              "label": "5-5"
+            },
+            {
+              "value": "4906",
+              "label": "6"
+            },
+            {
+              "value": "4907",
+              "label": "6-5"
+            },
+            {
+              "value": "4908",
+              "label": "7"
+            },
+            {
+              "value": "4909",
+              "label": "7-5"
+            },
+            {
+              "value": "4910",
+              "label": "8"
+            },
+            {
+              "value": "4911",
+              "label": "8-5"
+            },
+            {
+              "value": "4912",
+              "label": "9"
+            },
+            {
+              "value": "4913",
+              "label": "9-5"
+            },
+            {
+              "value": "4914",
+              "label": "10"
+            },
+            {
+              "value": "4915",
+              "label": "10-5"
+            },
+            {
+              "value": "4916",
+              "label": "11"
+            },
+            {
+              "value": "4917",
+              "label": "11-5"
+            },
+            {
+              "value": "4918",
+              "label": "12"
+            },
+            {
+              "value": "4919",
+              "label": "12-5"
+            },
+            {
+              "value": "4920",
+              "label": "13"
+            },
+            {
+              "value": "4921",
+              "label": "13-5"
+            },
+            {
+              "value": "4922",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/women-barefoot-leather-shoes-earthing-grounding-shoes-with-wide-toe-box-raven-black/",
@@ -253,7 +2343,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/126/2117/1__98016.1788699019.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[122]",
+          "values": [
+            {
+              "value": "294",
+              "label": "3-5"
+            },
+            {
+              "value": "295",
+              "label": "4"
+            },
+            {
+              "value": "296",
+              "label": "4-5"
+            },
+            {
+              "value": "297",
+              "label": "5"
+            },
+            {
+              "value": "298",
+              "label": "5-5"
+            },
+            {
+              "value": "299",
+              "label": "6"
+            },
+            {
+              "value": "300",
+              "label": "6-5"
+            },
+            {
+              "value": "301",
+              "label": "7"
+            },
+            {
+              "value": "302",
+              "label": "7-5"
+            },
+            {
+              "value": "303",
+              "label": "8"
+            },
+            {
+              "value": "304",
+              "label": "8-5"
+            },
+            {
+              "value": "305",
+              "label": "9"
+            },
+            {
+              "value": "306",
+              "label": "9-5"
+            },
+            {
+              "value": "307",
+              "label": "10"
+            },
+            {
+              "value": "308",
+              "label": "10-5"
+            },
+            {
+              "value": "309",
+              "label": "11"
+            },
+            {
+              "value": "310",
+              "label": "11-5"
+            },
+            {
+              "value": "311",
+              "label": "12"
+            },
+            {
+              "value": "313",
+              "label": "12-5"
+            },
+            {
+              "value": "314",
+              "label": "13"
+            },
+            {
+              "value": "316",
+              "label": "13-5"
+            },
+            {
+              "value": "317",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/women-barefoot-shoes-instant-comfort-for-everyday-wear-earth/",
@@ -264,7 +2449,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/345/1983/18__46842.1788699637.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[347]",
+          "values": [
+            {
+              "value": "5167",
+              "label": "3-5"
+            },
+            {
+              "value": "5168",
+              "label": "4"
+            },
+            {
+              "value": "5169",
+              "label": "4-5"
+            },
+            {
+              "value": "5170",
+              "label": "5"
+            },
+            {
+              "value": "5171",
+              "label": "5-5"
+            },
+            {
+              "value": "5172",
+              "label": "6"
+            },
+            {
+              "value": "5173",
+              "label": "6-5"
+            },
+            {
+              "value": "5174",
+              "label": "7"
+            },
+            {
+              "value": "5175",
+              "label": "7-5"
+            },
+            {
+              "value": "5176",
+              "label": "8"
+            },
+            {
+              "value": "5177",
+              "label": "8-5"
+            },
+            {
+              "value": "5178",
+              "label": "9"
+            },
+            {
+              "value": "5179",
+              "label": "9-5"
+            },
+            {
+              "value": "5180",
+              "label": "10"
+            },
+            {
+              "value": "5181",
+              "label": "10-5"
+            },
+            {
+              "value": "5182",
+              "label": "11"
+            },
+            {
+              "value": "5183",
+              "label": "11-5"
+            },
+            {
+              "value": "5184",
+              "label": "12"
+            },
+            {
+              "value": "5185",
+              "label": "12-5"
+            },
+            {
+              "value": "5186",
+              "label": "13"
+            },
+            {
+              "value": "5187",
+              "label": "13-5"
+            },
+            {
+              "value": "5188",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     },
     {
       "url": "https://edeshoes.com/women-everyday-leather-shoes-handmade-comfortable-naturally-crafted-midnight-black/",
@@ -275,7 +2555,102 @@
         "https://cdn11.bigcommerce.com/s-eo87ds0fuy/images/stencil/1280x1280/products/350/1978/1__50321.1788699657.png?c=1"
       ],
       "price": "99",
-      "currency": "USD"
+      "currency": "USD",
+      "options": [
+        {
+          "name": "attribute[350]",
+          "values": [
+            {
+              "value": "5233",
+              "label": "3-5"
+            },
+            {
+              "value": "5234",
+              "label": "4"
+            },
+            {
+              "value": "5235",
+              "label": "4-5"
+            },
+            {
+              "value": "5236",
+              "label": "5"
+            },
+            {
+              "value": "5237",
+              "label": "5-5"
+            },
+            {
+              "value": "5238",
+              "label": "6"
+            },
+            {
+              "value": "5239",
+              "label": "6-5"
+            },
+            {
+              "value": "5240",
+              "label": "7"
+            },
+            {
+              "value": "5241",
+              "label": "7-5"
+            },
+            {
+              "value": "5242",
+              "label": "8"
+            },
+            {
+              "value": "5243",
+              "label": "8-5"
+            },
+            {
+              "value": "5244",
+              "label": "9"
+            },
+            {
+              "value": "5245",
+              "label": "9-5"
+            },
+            {
+              "value": "5246",
+              "label": "10"
+            },
+            {
+              "value": "5247",
+              "label": "10-5"
+            },
+            {
+              "value": "5248",
+              "label": "11"
+            },
+            {
+              "value": "5249",
+              "label": "11-5"
+            },
+            {
+              "value": "5250",
+              "label": "12"
+            },
+            {
+              "value": "5251",
+              "label": "12-5"
+            },
+            {
+              "value": "5252",
+              "label": "13"
+            },
+            {
+              "value": "5253",
+              "label": "13-5"
+            },
+            {
+              "value": "5254",
+              "label": "14"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

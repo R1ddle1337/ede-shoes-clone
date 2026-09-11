@@ -40,7 +40,14 @@ for i,url in enumerate(sorted(seen),1):
         if isinstance(image,str): image=[image]
         if not ld or not title: print('skip non-product',url); continue
         offers=(ld or {}).get('offers') or {}
-        products[url]={'url':url,'slug':urlparse(url).path.strip('/'),'name':title,'description':re.sub(r'\\s+',' ',desc).strip(),'images':[urljoin(url,x) for x in image],'price':offers.get('price'),'currency':offers.get('priceCurrency')}
+        options=[]
+        for name, inputs in __import__('itertools').groupby(soup.select('input[type="radio"][name]'), key=lambda x:x.get('name')):
+            vals=[]
+            for inp in inputs:
+                label=soup.find('label',attrs={'for':inp.get('id')})
+                vals.append({'value':inp.get('value'),'label':(label or inp.parent).get_text(' ',strip=True)})
+            if vals: options.append({'name':name,'values':vals})
+        products[url]={'url':url,'slug':urlparse(url).path.strip('/'),'name':title,'description':re.sub(r'\\s+',' ',desc).strip(),'images':[urljoin(url,x) for x in image],'price':offers.get('price'),'currency':offers.get('priceCurrency'),'options':options}
         print(i,title)
         time.sleep(1)
     except Exception as e: print('error',url,e)
