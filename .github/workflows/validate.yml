@@ -1,0 +1,23 @@
+name: Validate Stencil theme
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm exec --yes --package=@bigcommerce/stencil-cli stencil bundle
+      - name: Verify source snapshots
+        run: |
+          test "$(node -e "console.log(require('./data/ede-catalog.json').products.length)")" -ge 1
+          test "$(node -e "console.log(require('./data/ede-pages.json').pages.length)")" -ge 1
